@@ -1,6 +1,10 @@
 import discord
+import os
 
 client = discord.Client()
+ROBOFRIEND_CLIENT_ID = os.environ["ROBOFRIEND_CLIENT_ID"]
+ROBOFRIEND_DISCORD_TOKEN = os.environ["ROBOFRIEND_DISCORD_TOKEN"]
+
 
 @client.event
 async def on_ready():
@@ -20,5 +24,5 @@ async def on_message(message):
         await message.channel.send("Dang son!")
 
 
-print(discord.utils.oauth_url('793906134523969537'))
-client.run('NzkzOTA2MTM0NTIzOTY5NTM3.X-zEtA.usA69HcQIhqUuutSmxisKklSGaM')
+print(discord.utils.oauth_url(ROBOFRIEND_CLIENT_ID))
+client.run(ROBOFRIEND_DISCORD_TOKEN)
